@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 2
+names: ['Juice Global Village pineapple', 'food-products']
+
+roboflow:
+  workspace: sco-z487d
+  project: sco-products
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/sco-z487d/sco-products/dataset/1
