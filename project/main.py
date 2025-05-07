@@ -59,7 +59,7 @@ class ImageWindow(QWidget):
         self.timer.timeout.connect(self.update_frame)
 
         # Порог уверенности
-        self.confidence_threshold = 0.1
+        self.confidence_threshold = 0.01
 
         # Лог-файл
         self.log_file = self.create_log_file()
@@ -103,7 +103,7 @@ class ImageWindow(QWidget):
             self.display_image(result_image)
 
     def test_inference(self):
-        test_image = 'C:/Users/ViTaY/Desktop/SCO/project/SCO_products.v1i.yolov8/train/images/image1.jpg'
+        test_image = 'C:/Users/ViTaY/Desktop/SCO/project/SCO_products.v1i.yolov8/train/images/-Global-Village-6_jpeg.rf.905a989a334442a66185df9c993b7464.jpg'
         if os.path.exists(test_image):
             image = cv2.imread(test_image)
             if image is not None:
@@ -117,7 +117,7 @@ class ImageWindow(QWidget):
 
     def detect_objects(self, image, source='Unknown'):
         self.result_box.clear()
-        results = self.model(image, conf=0.1, imgsz=416)[0]
+        results = self.model(image, conf=0.01, imgsz=640)[0]
         print(f"Всего детекций: {len(results.boxes)}")
 
         for box in results.boxes:
